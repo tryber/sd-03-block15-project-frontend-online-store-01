@@ -13,11 +13,6 @@ class ShoppingCart extends React.Component {
     const { empty } = this.state;
     return (
       <div>
-        <img
-          data-testid="shopping-cart-button"
-          src="../images/carrinho-de-compras.png"
-          alt="carrinho-de-compras"
-        />
         {
           empty &&
           <div>
