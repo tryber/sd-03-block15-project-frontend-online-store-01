@@ -3,8 +3,8 @@ import {getCategories} from './services/api';
 
 class Categories extends React.Component {
   render() {
-    const categorias = getCategories().then((array) => array.map(element => console.log(element)));
-    console.log( categorias);
+    const categorias = getCategories();
+    console.log(categorias.then((array) => array.map(element => console.log(element))));
     return (
       <div>
         <ul data-testid="category">
