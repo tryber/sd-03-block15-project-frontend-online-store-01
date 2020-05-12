@@ -6,7 +6,7 @@ export default class CampoBusca extends Component {
 
     this.state = {
       item: '',
-      test: [],
+      produto: [],
       valueShow: true,
     };
     this.textChange = this.textChange.bind(this);
@@ -21,13 +21,13 @@ export default class CampoBusca extends Component {
     fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${this.state.item}`)
       .then((resp) => resp.json())
       .then((categories) => this.setState({
-        test: categories.results,
+        produto: categories.results,
         valueShow: false,
       }));
   }
 
   textInput() {
-    const { test, valueShow } = this.state;
+    const { produto, valueShow } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -37,7 +37,7 @@ export default class CampoBusca extends Component {
     }
     return (
       <div data-testid="product">
-        {test.map((el) => (
+        {produto.map((el) => (
           <div key={el.title}>
             <p>{el.title}</p>
             <img src={el.thumbnail} alt={el.title} />
