@@ -12,7 +12,12 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Link to="/shopping-cart" data-testid="shopping-cart-button"><img src="/images/carrinho-de-compras.png" alt="carrinho-de-compras" /></Link>
+      <Link
+        to="/shopping-cart"
+        data-testid="shopping-cart-button"
+      >
+        <img src="/images/carrinho-de-compras.png" alt="carrinho-de-compras" />
+      </Link>
       <Switch>
         <Route exact path="/" component={ProductList} />
         <Route path="/shopping-cart" component={ShoppingCart} />
