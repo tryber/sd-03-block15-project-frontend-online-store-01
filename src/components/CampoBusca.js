@@ -52,7 +52,13 @@ export default class CampoBusca extends Component {
     return (
       <div>
         <input data-testid="query-input" type="text" onChange={this.textChange} />
-        <button type="button" data-testid="query-button" onClick={() => this.shearchButton()}>clique</button>
+        <button
+          type="button"
+          data-testid="query-button"
+          onClick={() => this.shearchButton()}
+        >
+          clique
+        </button>
         {this.textInput()}
       </div>
     );
