@@ -6,7 +6,7 @@ export default class CampoBusca extends Component {
 
     this.state = {
       item: '',
-      test: null,
+      test: {},
     };
     this.textChange = this.textChange.bind(this);
   }
@@ -15,7 +15,9 @@ export default class CampoBusca extends Component {
     await this.setState({ item: value.target.value });
     fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${this.state.item}`)
       .then((resp) => resp.json())
-      .then((categories) => categories.results.filter((el) => this.setState({ test: el.title })));
+      .then((categories) => categories.results.forEach((el) => this.setState({
+        test: el.title
+      }) ));
   }
 
   textInput() {
