@@ -8,10 +8,12 @@ import {
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import './App.css';
+import Categories from './Categories';
 
 function App() {
   return (
     <Router>
+      <Categories />
       <Link
         to="/shopping-cart"
         data-testid="shopping-cart-button"
