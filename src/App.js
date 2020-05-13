@@ -13,7 +13,7 @@ import Categories from './Categories';
 function App() {
   return (
     <Router>
-    <Categories />
+      <Categories />
       <Link
         to="/shopping-cart"
         data-testid="shopping-cart-button"
