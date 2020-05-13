@@ -16,7 +16,7 @@ class ProductDetails extends React.Component {
     fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${item}`)
       .then((res) => res.json())
       .then((result) => result.results)
-      .then((products) => products.filter((item) => item.id === id))
+      .then((products) => products.filter((element) => element.id === id))
       .then((product) => this.setState({
         product: product[0],
         isLoading: false,
