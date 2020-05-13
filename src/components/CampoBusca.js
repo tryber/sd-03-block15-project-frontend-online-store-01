@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class CampoBusca extends Component {
   constructor(props) {
@@ -6,7 +7,7 @@ export default class CampoBusca extends Component {
 
     this.state = {
       item: '',
-      test: [],
+      products: [],
       valueShow: true,
     };
     this.textChange = this.textChange.bind(this);
@@ -21,13 +22,13 @@ export default class CampoBusca extends Component {
     fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${this.state.item}`)
       .then((resp) => resp.json())
       .then((categories) => this.setState({
-        test: categories.results,
+        products: categories.results,
         valueShow: false,
       }));
   }
 
   textInput() {
-    const { test, valueShow } = this.state;
+    const { products, valueShow } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -37,11 +38,12 @@ export default class CampoBusca extends Component {
     }
     return (
       <div data-testid="product">
-        {test.map((el) => (
+        {products.map((el) => (
           <div key={el.title}>
             <p>{el.title}</p>
             <img src={el.thumbnail} alt={el.title} />
             <p>{el.price}</p>
+            <Link to={`/product/${this.state.item}/${el.id}`} data-testid="product-detail-link">Ver detalhes</Link>
           </div>
         ))}
       </div>

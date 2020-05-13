@@ -9,6 +9,7 @@ import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import './App.css';
 import Categories from './Categories';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ProductList} />
         <Route path="/shopping-cart" component={ShoppingCart} />
+        <Route path="/product/:item/:id" component={ProductDetails} />
       </Switch>
     </Router>
   );
