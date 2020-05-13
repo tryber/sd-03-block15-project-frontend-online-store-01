@@ -22,7 +22,14 @@ class Categories extends React.Component {
       <div>
         <ul>
           <h4>Categorias</h4>
-          {categorias.map((element) => <li data-testid="category" key={element.id}>{element.name}</li>)}
+          {categorias.map((element) => (
+            <li
+              data-testid="category"
+              key={element.id}
+            >
+              {element.name}
+            </li>
+))}
         </ul>
       </div>
     );
