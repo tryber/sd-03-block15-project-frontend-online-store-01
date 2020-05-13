@@ -1,31 +1,32 @@
 import React from 'react';
-import {getCategories} from './services/api';
+import { getCategories } from './services/api';
 
 class Categories extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            categorias: [],
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      categorias: [],
     }
-   componentDidMount() {
+  }
+  componentDidMount() {
     this.categoriasLoad();
-   }
+  }
 
-    categoriasLoad() {
-       getCategories().then((array) => array.map(element => 
-        element.id)).then(dados => this.setState({categorias: dados}));
-   }
+  categoriasLoad() {
+    getCategories().then((array) => array.map(element =>
+      element)).then(dados => this.setState({ categorias: dados }));
+  }
 
   render() {
-       console.log(this.state.categorias);
+   const {categorias} = this.state; 
     return (
       <div>
-        <ul data-testid="category">
+        <ul >
           <h4>Categorias</h4>
-          <li>
-            categorias
-          </li>
+
+          {categorias.map(element =>
+            <li data-testid="category" key={element.id}>{element.name}</li>)}
+
         </ul>
       </div>
     );
