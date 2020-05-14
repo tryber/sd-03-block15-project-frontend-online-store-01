@@ -1,5 +1,5 @@
 import React from 'react';
-import { getCategories } from './services/api';
+import { getCategories } from '../services/api';
 
 class Categories extends React.Component {
   constructor(props) {
@@ -12,8 +12,8 @@ class Categories extends React.Component {
   }
 
   categoriasLoad() {
-    getCategories().then((array) =>
-      array.map((element) => element)).then((dados) => this.setState({ categorias: dados }));
+    getCategories().then((array) => array
+      .map((element) => element)).then((dados) => this.setState({ categorias: dados }));
   }
 
   render() {
@@ -29,7 +29,7 @@ class Categories extends React.Component {
             >
               {element.name}
             </li>
-))}
+          ))}
         </ul>
       </div>
     );
