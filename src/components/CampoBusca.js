@@ -11,6 +11,7 @@ export default class CampoBusca extends Component {
       products: [],
       valueShow: true,
     };
+    
     this.textChange = this.textChange.bind(this);
     this.shearchButton = this.shearchButton.bind(this);
   }

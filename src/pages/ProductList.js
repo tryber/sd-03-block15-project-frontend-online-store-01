@@ -6,7 +6,9 @@ class ProductList extends React.Component {
   render() {
     return (
       <div>
-        <Categories />
+        
+       }
+        <Categories  categoryID={this.props.location} />
         <CampoBusca />
       </div>
     );
