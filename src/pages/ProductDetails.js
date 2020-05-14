@@ -1,5 +1,8 @@
 import React from 'react';
 import Loading from '../components/Loading';
+import { getProductsFromCategoryAndQuery } from '../services/api';
+import Product from '../components/Product';
+import Rating from '../components/Rating';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -10,11 +13,9 @@ class ProductDetails extends React.Component {
     };
   }
 
-
   componentDidMount() {
-    const { item, id } = this.props.match.params;
-    fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${item}`)
-      .then((res) => res.json())
+    const { match: { params: { item, id } } } = this.props;
+    getProductsFromCategoryAndQuery(id, item)
       .then((result) => result.results)
       .then((products) => products.filter((element) => element.id === id))
       .then((product) => this.setState({
@@ -31,9 +32,8 @@ class ProductDetails extends React.Component {
 
     return (
       <div>
-        <h1 data-testid="product-detail-name">{title}</h1>
-        <img src={thumbnail} alt={title} />
-        <p>R$ {price}</p>
+        <Product title={title} thumbnail={thumbnail} price={price} />
+        <Rating />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getProductsFromCategoryAndQuery } from '../services/api';
 
 export default class CampoBusca extends Component {
   constructor(props) {
@@ -19,8 +20,8 @@ export default class CampoBusca extends Component {
   }
 
   shearchButton() {
-    fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${this.state.item}`)
-      .then((resp) => resp.json())
+    const { item } = this.state;
+    getProductsFromCategoryAndQuery(null, item)
       .then((categories) => this.setState({
         products: categories.results,
         valueShow: false,
@@ -28,7 +29,7 @@ export default class CampoBusca extends Component {
   }
 
   textInput() {
-    const { products, valueShow } = this.state;
+    const { products, valueShow, item } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -37,13 +38,13 @@ export default class CampoBusca extends Component {
       );
     }
     return (
-      <div data-testid="product">
+      <div>
         {products.map((el) => (
           <div key={el.title}>
-            <p>{el.title}</p>
+            <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
-            <p>{el.price}</p>
-            <Link to={`/product/${this.state.item}/${el.id}`} data-testid="product-detail-link">Ver detalhes</Link>
+            <div>{el.price}</div>
+            <Link to={`/product/${item}/${el.id}`} data-testid="product-detail-link">Ver detalhes</Link>
           </div>
         ))}
       </div>
