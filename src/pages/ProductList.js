@@ -28,7 +28,7 @@ class ProductList extends React.Component {
   }
 
   textInput() {
-    const { products, valueShow, item } = this.state;
+    const { products, valueShow } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
