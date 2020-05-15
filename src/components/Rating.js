@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 const initialState = {
-  menssagem: null,
-  ratingValue: null,
-  email: null,
+  menssagem: undefined,
+  ratingValue: undefined,
+  email: undefined,
 };
 
 export default class Rating extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null,
-      menssagemValue: null,
-      ratingValue: null,
+      email: undefined,
+      menssagemValue: undefined,
+      ratingValue: undefined,
     };
     this.submit = this.submit.bind(this);
   }
@@ -36,17 +36,31 @@ export default class Rating extends Component {
     const rating = localStorage.getItem(`rating${id.id}`);
     localStorage.setItem(`rating${id.id}`, [rating, email, ratingValue, menssagemValue]);
     this.setState({ initialState });
-    console.log(initialState)
+  }
+
+  textArea() {
+    const { menssagemValue } = this.state;
+    return (
+      <textarea
+        data-testid="product-detail-evaluation"
+        onChange={(e) => this.setValue(e.target.value)}
+        placeholder="Mensagem (opcional)"
+        value={menssagemValue}
+        cols={40}
+        rows={10}
+      />
+    );
   }
 
   render() {
     const { id } = this.props;
-    const { menssagemValue, email } = this.state;
+    const { email } = this.state;
     const rating = localStorage.getItem(`rating${id.id}`);
+
     return (
       <div>
         <form onSubmit={this.submit}>
-          <input id="email" type="email" onChange={(e) => this.setEmail(e.target.value)} value={email} data-testid="product-detail-evaluation" />
+          <input id="email" type="email" onChange={(e) => this.setEmail(e.target.value)} value={email} />
           {[...Array(5)].map((star, i) => {
             const ratingValue = i + 1;
             return (
@@ -63,7 +77,7 @@ export default class Rating extends Component {
               </label>
             );
           })}
-          <textarea data-testid="product-detail-evaluation" onChange={(e) => this.setValue(e.target.value)} placeholder="Mensagem (opcional)" value={menssagemValue} cols={40} rows={10} />
+          {this.textArea()}
           <button type="submit">Avaliar</button>
         </form>
         <div>
