@@ -21,7 +21,7 @@ class ProductList extends React.Component {
     this.setState({ item: value.target.value });
   }
 
-   shearchButton(categoryid) {     
+  shearchButton(categoryid) {
     const { item } = this.state;
     console.log(item);
     getProductsFromCategoryAndQuery(categoryid, item)
