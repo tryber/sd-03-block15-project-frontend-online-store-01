@@ -43,7 +43,7 @@ class ProductList extends React.Component {
             <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
             <div>{el.price}</div>
-            <Link to={`/product/${item}/${el.id}`} data-testid="product-detail-link">Ver detalhes</Link>
+            <Link to={`/product/${el.id}`} data-testid="product-detail-link">Ver detalhes</Link>
           </div>
         ))}
       </div>

@@ -22,7 +22,7 @@ function App() {
       <Switch>
         <Route name="productList" exact path="/" component={ProductList} />
         <Route path="/shopping-cart" component={ShoppingCart} />
-        <Route path="/product/:item/:id" component={ProductDetails} />
+        <Route path="/product/:id" component={ProductDetails} />
       </Switch>
     </Router>
   );
