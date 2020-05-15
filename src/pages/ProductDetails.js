@@ -33,7 +33,7 @@ class ProductDetails extends React.Component {
     return (
       <div>
         <Product title={title} thumbnail={thumbnail} price={price} />
-        <Rating />
+        <Rating id={product} />
       </div>
     );
   }
