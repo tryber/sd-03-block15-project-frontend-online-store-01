@@ -1,6 +1,6 @@
 import React from 'react';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import CampoBusca from './CampoBusca';
 
 class Categories extends React.Component {
@@ -8,14 +8,14 @@ class Categories extends React.Component {
     super(props);
 
     this.state = {
-      categorias: [], 
+      categorias: [],
       item: '',
       products: [],
       valueShow: true,
-      categoryID : this.props.categoryID,
+      categoryID: this.props.categoryID,
     };
     this.searchLink = this.searchLink.bind(this);
-    
+
   }
 
   async componentDidMount() {
@@ -28,8 +28,8 @@ class Categories extends React.Component {
   }
 
   searchLink(categoriaID) {
-   
-   this.props.event(categoriaID);
+
+    this.props.event(categoriaID);
   }
 
   render() {
@@ -40,11 +40,11 @@ class Categories extends React.Component {
           <h4>Categorias</h4>
           {categorias.map((element) => (
             <li
-              
+
               key={element.id}
-            > 
-              <Link data-testid="category" to={{pathname: '/', category: element.id}} onClick={() => this.searchLink(element.id)}>{element.name} = {element.id}</Link>
-              
+            >
+              <Link data-testid="category" to={{ pathname: '/', category: element.id }} onClick={() => this.searchLink(element.id)}>{element.name} = {element.id}</Link>
+
             </li>
           ))}
         </ul>

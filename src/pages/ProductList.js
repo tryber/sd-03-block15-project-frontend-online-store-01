@@ -12,20 +12,21 @@ class ProductList extends React.Component {
       products: [],
       valueShow: true,
     };
-   
+
     this.textChange = this.textChange.bind(this);
     this.shearchButton = this.shearchButton.bind(this);
   }
-  
+
   textChange(value) {
     this.setState({ item: value.target.value });
   }
 
-   async shearchButton(categoryid) {
-      console.log(categoryid)
+  async shearchButton(categoryid) {
+    console.log(categoryid)
     const { item } = this.state;
-     await getProductsFromCategoryAndQuery(categoryid, item)
-      .then((categories) => this.setState({products: categories.results, valueShow:false}))}
+    await getProductsFromCategoryAndQuery(categoryid, item)
+      .then((categories) => this.setState({ products: categories.results, valueShow: false }))
+  }
 
   textInput() {
     const { products, valueShow, item } = this.state;
