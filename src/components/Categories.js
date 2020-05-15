@@ -1,7 +1,7 @@
-import React from 'react';
-import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import { Link } from 'react-router-dom';
-import CampoBusca from './CampoBusca';
+import React from 'react';
+import { getCategories } from '../services/api';
+
 
 class Categories extends React.Component {
   constructor(props) {
@@ -15,7 +15,6 @@ class Categories extends React.Component {
       categoryID: this.props.categoryID,
     };
     this.searchLink = this.searchLink.bind(this);
-
   }
 
   async componentDidMount() {
@@ -28,7 +27,6 @@ class Categories extends React.Component {
   }
 
   searchLink(categoriaID) {
-
     this.props.event(categoriaID);
   }
 

@@ -22,10 +22,9 @@ class ProductList extends React.Component {
   }
 
   async shearchButton(categoryid) {
-    console.log(categoryid)
     const { item } = this.state;
     await getProductsFromCategoryAndQuery(categoryid, item)
-      .then((categories) => this.setState({ products: categories.results, valueShow: false }))
+      .then((categories) => this.setState({ products: categories.results, valueShow: false }));
   }
 
   textInput() {
