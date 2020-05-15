@@ -52,6 +52,27 @@ export default class Rating extends Component {
     );
   }
 
+  ratingStar() {
+    return (
+      [...Array(5)].map((star, i) => {
+        const ratingValue = i + 1;
+        return (
+          <label htmlFor={`starRating${i}`}>
+            <input
+              id={`starRating${i}`}
+              type="radio"
+              name="rating"
+              placeholder=" Email"
+              value={ratingValue}
+              onClick={() => this.setRating(ratingValue)}
+              required
+            />
+          </label>
+        );
+      })
+    );
+  }
+
   render() {
     const { id } = this.props;
     const { email } = this.state;
@@ -61,22 +82,7 @@ export default class Rating extends Component {
       <div>
         <form onSubmit={this.submit}>
           <input id="email" type="email" onChange={(e) => this.setEmail(e.target.value)} value={email} />
-          {[...Array(5)].map((star, i) => {
-            const ratingValue = i + 1;
-            return (
-              <label htmlFor={`starRating${i}`}>
-                <input
-                  id={`starRating${i}`}
-                  type="radio"
-                  name="rating"
-                  placeholder=" Email"
-                  value={ratingValue}
-                  onClick={() => this.setRating(ratingValue)}
-                  required
-                />
-              </label>
-            );
-          })}
+          {this.ratingStar()}
           {this.textArea()}
           <button type="submit">Avaliar</button>
         </form>
