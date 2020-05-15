@@ -8,7 +8,26 @@ export async function getCategories() {
 
 export async function getProductsFromCategoryAndQuery(categoryId, query) {
   // implement here
-  return fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`)
+  if (categoryId && query) {
+    console.log("executou id e query");
+   return fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`)
     .then((response) => response.json())
     .then((data) => data);
+    
 }
+  else if (categoryId) {
+    console.log("executou id")
+    return fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`)
+    .then((response) => response.json())
+    .then((data) => data);
+    
+}
+  else if (query) {
+    console.log("executou query")
+   return fetch(`https://api.mercadolibre.com/sites/MLB/search?&q=${query}`)
+   .then((response) => response.json())
+   .then((data) => data);
+}
+  }
+
+

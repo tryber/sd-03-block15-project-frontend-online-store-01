@@ -16,6 +16,7 @@ class ProductDetails extends React.Component {
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const { location: { state } } = this.props;
+   
     getProductsFromCategoryAndQuery(id, state)
       .then((result) => result.results)
       .then((products) => products.filter((element) => element.id === id))
@@ -23,18 +24,21 @@ class ProductDetails extends React.Component {
         product: product[0],
         isLoading: false,
       }));
+    
   }
 
   render() {
-    const { isLoading, product } = this.state;
+    const { isLoading } = this.state;
+    const {productItem} = this.props.location;
     if (isLoading) return <Loading />;
 
-    const { title, price, thumbnail } = product;
+   const { id, title, price, thumbnail } = productItem;
 
     return (
       <div>
+        {console.log(id)}
         <Product title={title} thumbnail={thumbnail} price={price} />
-        <Rating id={product} />
+        <Rating id={productItem} />
       </div>
     );
   }
