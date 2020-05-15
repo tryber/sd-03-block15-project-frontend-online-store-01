@@ -15,11 +15,11 @@ class Categories extends React.Component {
       categoryID : this.props.categoryID,
     };
     this.searchLink = this.searchLink.bind(this);
+    
   }
 
-  componentDidMount() {
-    this.categoriasLoad();
-    
+  async componentDidMount() {
+    await this.categoriasLoad();
   }
 
   categoriasLoad() {
@@ -27,17 +27,10 @@ class Categories extends React.Component {
       .map((element) => element)).then((dados) => this.setState({ categorias: dados }));
   }
 
-  searchLink() {
-    console.log(this.props.categoryID)
-     //const { item } = this.state;
-     //const {key} = this.props
-    // console.log(key);
-    getProductsFromCategoryAndQuery()
-    //.then((categories) => this.setState({
-      //products: categories.results,
-      //valueShow: false,
-    //}));
+  searchLink(categoriaID) {
+   this.props.event(categoriaID);
   }
+
   render() {
     const { categorias } = this.state;
     return (
@@ -48,8 +41,8 @@ class Categories extends React.Component {
             <li
               data-testid="category"
               key={element.id}
-            >
-              <Link to={{pathname: '/', category: element}} onClick={this.searchLink}>{element.name} = {element.id}</Link>
+            > 
+              <Link to={{pathname: '/', category: element.id}} onClick={() => this.searchLink(element.id)}>{element.name} = {element.id}</Link>
               
             </li>
           ))}
