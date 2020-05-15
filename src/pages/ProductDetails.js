@@ -14,8 +14,9 @@ class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    const { match: { params: { item, id } } } = this.props;
-    getProductsFromCategoryAndQuery(id, item)
+    const { match: { params: { id } } } = this.props;
+    const { location: { state } } = this.props;
+    getProductsFromCategoryAndQuery(id, state)
       .then((result) => result.results)
       .then((products) => products.filter((element) => element.id === id))
       .then((product) => this.setState({
@@ -33,7 +34,7 @@ class ProductDetails extends React.Component {
     return (
       <div>
         <Product title={title} thumbnail={thumbnail} price={price} />
-        <Rating />
+        <Rating id={product} />
       </div>
     );
   }

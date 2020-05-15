@@ -28,7 +28,7 @@ class ProductList extends React.Component {
   }
 
   textInput() {
-    const { products, valueShow } = this.state;
+    const { products, valueShow, item } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -43,7 +43,15 @@ class ProductList extends React.Component {
             <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
             <div>{el.price}</div>
-            <Link to={`/product/${el.id}`} data-testid="product-detail-link">Ver detalhes</Link>
+            <Link
+              to={{
+                pathname: `/product/${el.id}`,
+                state: item,
+              }}
+              data-testid="product-detail-link"
+            >
+              Ver detalhes
+            </Link>
           </div>
         ))}
       </div>

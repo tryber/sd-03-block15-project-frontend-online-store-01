@@ -41,7 +41,7 @@ class Categories extends React.Component {
 
               key={element.id}
             >
-              <Link data-testid="category" to={{ pathname: '/', category: element.id }} onClick={() => this.searchLink(element.id)}>{element.name} = {element.id}</Link>
+              <Link data-testid="category" to={{ pathname: '/', category: element.id }} onClick={() => this.searchLink(element.id)}>{element.name}</Link>
 
             </li>
           ))}
