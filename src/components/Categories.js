@@ -28,6 +28,7 @@ class Categories extends React.Component {
   }
 
   searchLink(categoriaID) {
+   
    this.props.event(categoriaID);
   }
 
@@ -39,10 +40,10 @@ class Categories extends React.Component {
           <h4>Categorias</h4>
           {categorias.map((element) => (
             <li
-              data-testid="category"
+              
               key={element.id}
             > 
-              <Link to={{pathname: '/', category: element.id}} onClick={() => this.searchLink(element.id)}>{element.name} = {element.id}</Link>
+              <Link data-testid="category" to={{pathname: '/', category: element.id}} onClick={() => this.searchLink(element.id)}>{element.name} = {element.id}</Link>
               
             </li>
           ))}

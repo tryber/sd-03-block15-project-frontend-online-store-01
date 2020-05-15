@@ -25,7 +25,7 @@ class ProductList extends React.Component {
       console.log(categoryid)
     const { item } = this.state;
      await getProductsFromCategoryAndQuery(categoryid, item)
-      .then((categories) => this.setState({products: categories.results}))}
+      .then((categories) => this.setState({products: categories.results, valueShow:false}))}
 
   textInput() {
     const { products, valueShow, item } = this.state;
