@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Rating extends Component {
   render() {
-    const { menssagem } = this.state;
+    const { menssagem } = this.props;
     return (
       <div>
         <form>

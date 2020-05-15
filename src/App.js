@@ -20,9 +20,9 @@ function App() {
         <img src="/images/carrinho-de-compras.png" alt="carrinho-de-compras" />
       </Link>
       <Switch>
-        <Route exact path="/" component={ProductList} />
+        <Route name="productList" exact path="/" component={ProductList} />
         <Route path="/shopping-cart" component={ShoppingCart} />
-        <Route path="/product/:item/:id" component={ProductDetails} />
+        <Route path="/product/:id" component={ProductDetails} />
       </Switch>
     </Router>
   );
