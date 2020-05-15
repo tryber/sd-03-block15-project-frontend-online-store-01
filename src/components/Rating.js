@@ -81,7 +81,12 @@ export default class Rating extends Component {
     return (
       <div>
         <form onSubmit={this.submit}>
-          <input id="email" type="email" onChange={(e) => this.setEmail(e.target.value)} value={email} />
+          <input
+            id="email"
+            type="email"
+            onChange={(e) => this.setEmail(e.target.value)}
+            value={email}
+          />
           {this.ratingStar()}
           {this.textArea()}
           <button type="submit">Avaliar</button>
