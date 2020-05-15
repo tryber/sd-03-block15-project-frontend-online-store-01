@@ -14,7 +14,10 @@ function App() {
   return (
     <Router>
       <Link
-        to="/shopping-cart"
+        to={{
+          pathname: '/shopping-cart',
+          state: { cart: null, empty: false },
+        }}
         data-testid="shopping-cart-button"
       >
         <img src="/images/carrinho-de-compras.png" alt="carrinho-de-compras" />

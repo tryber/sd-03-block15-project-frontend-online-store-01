@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
+import AddToCart from '../components/AddToCart';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class ProductList extends React.Component {
             <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
             <div>{el.price}</div>
+            <AddToCart title={el.title} thumbnail={el.thumbnail} price={el.price}/>
             <Link
               to={{
                 pathname: `/product/${el.id}`,
