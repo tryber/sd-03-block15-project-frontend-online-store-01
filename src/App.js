@@ -12,14 +12,13 @@ import ProductDetails from './pages/ProductDetails';
 import imgCart from './images/carrinho-de-compras.png';
 
 function App() {
-  return (   
+  return (
     <Router>
       <Link
         to="/shopping-cart"
         data-testid="shopping-cart-button"
       >
         <img src={imgCart} alt="carrinho-de-compras" />
-       
       </Link>
       <Switch>
         <Route name="productList" exact path="/" component={ProductList} />
