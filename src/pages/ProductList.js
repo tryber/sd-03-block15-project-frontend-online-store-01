@@ -32,7 +32,7 @@ class ProductList extends React.Component {
   }
 
   textInput() {
-    const { products, valueShow, item, cart, amountInTheCart } = this.state;
+    const { valueShow } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -40,6 +40,11 @@ class ProductList extends React.Component {
         </p>
       );
     }
+    return (this.productMap());
+  }
+
+  productMap() {
+    const { products, item, cart, amountInTheCart } = this.state;
     return (
       <div>
         {products.map((el) => (
