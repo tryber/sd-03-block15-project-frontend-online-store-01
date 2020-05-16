@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 import AddToCart from '../components/AddToCart';
+import imgCart from '../images/carrinho-de-compras.png';
 
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      amountInTheCart: 1,
+      cart: [],
       item: '',
       products: [],
       valueShow: true,
@@ -29,7 +32,7 @@ class ProductList extends React.Component {
   }
 
   textInput() {
-    const { products, valueShow, item } = this.state;
+    const { products, valueShow, item, cart, amountInTheCart } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -44,7 +47,13 @@ class ProductList extends React.Component {
             <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
             <div>{el.price}</div>
-            <AddToCart title={el.title} thumbnail={el.thumbnail} price={el.price}/>
+            <AddToCart
+              title={el.title}
+              thumbnail={el.thumbnail}
+              price={el.price}
+              cart={cart}
+              amountInTheCart={amountInTheCart}
+            />
             <Link
               to={{
                 pathname: `/product/${el.id}`,
@@ -60,9 +69,27 @@ class ProductList extends React.Component {
     );
   }
 
+  linkToCard() {
+    const { cart, amountInTheCart } = this.state;
+    return (
+      <div>
+        <Link
+          to={{
+            pathname: '/shopping-cart',
+            state: { cart, amountInTheCart },
+          }}
+          data-testid="shopping-cart-button"
+        >
+          <img src={imgCart} alt="carrinho-de-compras" />
+        </Link>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
+        {this.linkToCard()}
         <Categories event={this.shearchButton} />
         <input data-testid="query-input" type="text" onChange={this.textChange} />
         <button
