@@ -16,7 +16,7 @@ export async function getProductsFromCategoryAndQuery(categoryId, query) {
     return fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`)
       .then((response) => response.json())
       .then((data) => data);
-  }  else if (query) {
+  } else if (query) {
     return fetch(`https://api.mercadolibre.com/sites/MLB/search?&q=${query}`)
       .then((response) => response.json())
       .then((data) => data);
