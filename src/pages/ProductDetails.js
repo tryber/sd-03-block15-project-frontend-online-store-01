@@ -35,7 +35,6 @@ class ProductDetails extends React.Component {
 
     return (
       <div>
-        {console.log(id)}
         <Product title={title} thumbnail={thumbnail} price={price} />
         <Rating id={productItem} />
       </div>
