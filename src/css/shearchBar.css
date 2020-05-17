@@ -1,0 +1,42 @@
+.center {
+  margin-left: 350px;
+  margin-top: -700px;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.container .card {
+  background: rgb(214, 214, 214);
+  border-radius: 40px;
+  box-shadow: -7px -7px 20px 0 white , 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  margin: 20px;
+  padding: 40px 30px;
+  width: 320px;
+}
+
+.container .card:hover {
+  box-shadow: inset -7px -7px 20px 0 white , inset 7px 7px 20px 0
+    rgba(0, 0, 0, 0.2);
+}
+
+.container .card .imgBx {
+  position: relative;
+  text-align: center;
+}
+
+.shearch-bar {
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  box-shadow: -7px -7px 17px rgba(255, 255, 255, 0.8) , 7px 7px 17px
+    rgba(70, 70, 70, 0.12);
+  cursor: pointer;
+  margin: 20px 0;
+  padding: 20px;
+}

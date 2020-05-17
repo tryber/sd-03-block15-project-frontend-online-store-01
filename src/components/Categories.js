@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { getCategories } from '../services/api';
+import '../css/sideBar.css';
 
 
 class Categories extends React.Component {
@@ -33,19 +34,21 @@ class Categories extends React.Component {
   render() {
     const { categorias } = this.state;
     return (
-      <div>
-        <ul>
+      <div className="l-navbar">
+        <nav className="nav">
           <h4>Categorias</h4>
           {categorias.map((element) => (
             <li
-
+              className="nav__list"
               key={element.id}
             >
-              <Link data-testid="category" to={{ pathname: '/', category: element.id }} onClick={() => this.searchLink(element.id)}>{element.name}</Link>
+              <Link data-testid="category" to={{ pathname: '/', category: element.id }} onClick={() => this.searchLink(element.id)}>
+                <span>{element.name}</span>
+              </Link>
 
             </li>
           ))}
-        </ul>
+        </nav>
       </div>
     );
   }

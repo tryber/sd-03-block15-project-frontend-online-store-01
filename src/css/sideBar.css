@@ -1,0 +1,50 @@
+a {
+  text-decoration: none;
+}
+
+.botao {
+  background: rgb(214, 214, 214);
+  border: none;
+  border-radius: 25px;
+  box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7) , 7px 7px 20px 0
+    rgba(0, 0, 0, 0.2);
+  color: rgb(50, 207, 207);
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin: 20px;
+  min-width: 150px;
+  padding: 15px 10px;
+  text-transform: uppercase;
+}
+
+.botao:hover {
+  box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7) , inset 7px 7px 20px 0
+    rgba(0, 0, 0, 0.2);
+}
+
+.l-navbar {
+  background: rgb(214, 214, 214);
+  border-radius: 25px;
+  box-shadow: -7px -7px 20px 0 rgba(255, 255, 255, 0.7) , 7px 7px 20px 0
+    rgba(0, 0, 0, 0.2);
+  color: rgb(50, 207, 207);
+  cursor: pointer;
+  font-size: 15px;
+  left: 0;
+  letter-spacing: 2px;
+  padding: 1.25rem 1rem 2rem;
+  top: 0;
+  width: 250px;
+}
+
+.l-navbar:hover {
+  box-shadow: inset -7px -7px 20px 0 rgba(255, 255, 255, 0.7) , inset 7px 7px 20px 0
+    rgba(0, 0, 0, 0.2);
+}
+
+ul , li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
