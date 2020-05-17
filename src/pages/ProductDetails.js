@@ -3,6 +3,7 @@ import Loading from '../components/Loading';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Product from '../components/Product';
 import Rating from '../components/Rating';
+import AddToCartDetails from '../components/AddToCartDetails';
 import LinkToCart from '../components/LinkToCart';
 
 class ProductDetails extends React.Component {
@@ -11,6 +12,7 @@ class ProductDetails extends React.Component {
     this.state = {
       isLoading: true,
       product: {},
+      amountInTheCart: 1,
     };
   }
 
@@ -32,12 +34,20 @@ class ProductDetails extends React.Component {
     if (isLoading) return <Loading />;
 
     const { title, price, thumbnail } = productItem;
+    const { amountInTheCart } = this.state;
 
     return (
       <div>
         <LinkToCart cart={cart} />
         <Product title={title} thumbnail={thumbnail} price={price} />
         <Rating id={productItem} />
+        <AddToCartDetails
+          title={title}
+          thumbnail={thumbnail}
+          price={price}
+          cart={cart}
+          amountInTheCart={amountInTheCart}
+        />
       </div>
     );
   }
