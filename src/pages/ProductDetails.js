@@ -26,15 +26,17 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { isLoading, product } = this.state;
+    const { isLoading } = this.state;
+    const { location } = this.props;
+    const { productItem } = location;
     if (isLoading) return <Loading />;
 
-    const { title, price, thumbnail } = product;
+    const { title, price, thumbnail } = productItem;
 
     return (
       <div>
         <Product title={title} thumbnail={thumbnail} price={price} />
-        <Rating id={product} />
+        <Rating id={productItem} />
       </div>
     );
   }

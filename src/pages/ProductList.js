@@ -25,9 +25,10 @@ class ProductList extends React.Component {
     this.setState({ item: value.target.value });
   }
 
-  async shearchButton(categoryid) {
+  shearchButton(categoryid) {
     const { item } = this.state;
-    await getProductsFromCategoryAndQuery(categoryid, item)
+    console.log(item);
+    getProductsFromCategoryAndQuery(categoryid, item)
       .then((categories) => this.setState({ products: categories.results, valueShow: false }));
   }
 
@@ -44,11 +45,11 @@ class ProductList extends React.Component {
   }
 
   productMap() {
-    const { products, item, cart, amountInTheCart } = this.state;
+    const { products, cart, amountInTheCart } = this.state;
     return (
       <div>
         {products.map((el) => (
-          <div key={el.title}>
+          <div key={el.id}>
             <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
             <div>{el.price}</div>
@@ -62,7 +63,7 @@ class ProductList extends React.Component {
             <Link
               to={{
                 pathname: `/product/${el.id}`,
-                state: item,
+                productItem: el,
               }}
               data-testid="product-detail-link"
             >
@@ -75,7 +76,8 @@ class ProductList extends React.Component {
   }
 
   linkToCard() {
-    const { cart, amountInTheCart } = this.state;
+    const { cart } = this.state;
+    const amountInTheCart = cart.valueOf().length;
     return (
       <div>
         <Link

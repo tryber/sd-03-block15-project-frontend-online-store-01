@@ -2,6 +2,11 @@ import React from 'react';
 import caixaVazia from '../images/caixa-vazia.png';
 
 class ShoppingCart extends React.Component {
+  redirectToTarget(cart) {
+    const { history } = this.props;
+    history.push({ pathname: '/checkout', state: { cart } });
+  }
+
   cardItems() {
     const { location: { state: { cart } } } = this.props;
     return (
@@ -19,6 +24,7 @@ class ShoppingCart extends React.Component {
             </h4>
           </div>
         ))}
+        <button type="button" data-testid="checkout-products" onClick={() => this.redirectToTarget(cart)}>Finalizar Compra</button>
       </div>
     );
   }

@@ -8,6 +8,7 @@ import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import './App.css';
 import ProductDetails from './pages/ProductDetails';
+import Checkoutpage from './pages/CheckoutPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route name="productList" exact path="/" component={ProductList} />
         <Route path="/shopping-cart" component={ShoppingCart} />
         <Route path="/product/:id" component={ProductDetails} />
+        <Route path="/checkout" component={Checkoutpage} />
       </Switch>
     </Router>
   );
