@@ -4,6 +4,7 @@ import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 import AddToCart from '../components/AddToCart';
 import LinkToCart from '../components/LinkToCart';
+import '../css/shearchBar.css';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -27,7 +28,6 @@ class ProductList extends React.Component {
 
   shearchButton(categoryid) {
     const { item } = this.state;
-    console.log(item);
     getProductsFromCategoryAndQuery(categoryid, item)
       .then((categories) => this.setState({ products: categories.results, valueShow: false }));
   }
@@ -49,27 +49,29 @@ class ProductList extends React.Component {
     return (
       <div>
         {products.map((el) => (
-          <div key={el.id}>
-            <div data-testid="product">{el.title}</div>
-            <img src={el.thumbnail} alt={el.title} />
-            <div>{el.price}</div>
-            <AddToCart
-              title={el.title}
-              thumbnail={el.thumbnail}
-              price={el.price}
-              cart={cart}
-              amountInTheCart={amountInTheCart}
-            />
-            <Link
-              to={{
-                pathname: `/product/${el.id}`,
-                productItem: el,
-                cart,
-              }}
-              data-testid="product-detail-link"
-            >
-              Ver detalhes
-            </Link>
+          <div className="container" key={el.id}>
+            <div className="card">
+              <div data-testid="product">{el.title}</div>
+              <img src={el.thumbnail} alt={el.title} />
+              <div>{el.price}</div>
+              <AddToCart
+                title={el.title}
+                thumbnail={el.thumbnail}
+                price={el.price}
+                cart={cart}
+                amountInTheCart={amountInTheCart}
+              />
+              <Link
+                to={{
+                  pathname: `/product/${el.id}`,
+                  productItem: el,
+                  cart,
+                }}
+                data-testid="product-detail-link"
+              >
+                Ver detalhes
+              </Link>
+            </div>
           </div>
         ))}
       </div>
@@ -80,17 +82,20 @@ class ProductList extends React.Component {
     const { cart } = this.state;
     return (
       <div>
-        <LinkToCart cart={cart} />
         <Categories event={this.shearchButton} />
-        <input data-testid="query-input" type="text" onChange={this.textChange} />
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={() => this.shearchButton()}
-        >
-          clique
-        </button>
-        {this.textInput()}
+        <div className="center">
+          <LinkToCart cart={cart} />
+          <input className="shearch-bar" data-testid="query-input" type="text" onChange={this.textChange} />
+          <button
+            className="botao"
+            type="button"
+            data-testid="query-button"
+            onClick={() => this.shearchButton()}
+          >
+            Pesquisar
+          </button>
+          {this.textInput()}
+        </div>
       </div>
     );
   }
