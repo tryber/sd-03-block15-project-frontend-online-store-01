@@ -3,6 +3,7 @@ import Loading from '../components/Loading';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Product from '../components/Product';
 import Rating from '../components/Rating';
+import LinkToCart from '../components/LinkToCart';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -27,14 +28,14 @@ class ProductDetails extends React.Component {
 
   render() {
     const { isLoading } = this.state;
-    const { location } = this.props;
-    const { productItem } = location;
+    const { location: { productItem, cart } } = this.props;
     if (isLoading) return <Loading />;
 
     const { title, price, thumbnail } = productItem;
 
     return (
       <div>
+        <LinkToCart cart={cart} />
         <Product title={title} thumbnail={thumbnail} price={price} />
         <Rating id={productItem} />
       </div>

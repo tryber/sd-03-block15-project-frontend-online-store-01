@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 import AddToCart from '../components/AddToCart';
-import imgCart from '../images/carrinho-de-compras.png';
+import LinkToCart from '../components/LinkToCart';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -64,6 +64,7 @@ class ProductList extends React.Component {
               to={{
                 pathname: `/product/${el.id}`,
                 productItem: el,
+                cart,
               }}
               data-testid="product-detail-link"
             >
@@ -75,28 +76,11 @@ class ProductList extends React.Component {
     );
   }
 
-  linkToCard() {
-    const { cart } = this.state;
-    const amountInTheCart = cart.valueOf().length;
-    return (
-      <div>
-        <Link
-          to={{
-            pathname: '/shopping-cart',
-            state: { cart, amountInTheCart },
-          }}
-          data-testid="shopping-cart-button"
-        >
-          <img src={imgCart} alt="carrinho-de-compras" />
-        </Link>
-      </div>
-    );
-  }
-
   render() {
+    const { cart } = this.state;
     return (
       <div>
-        {this.linkToCard()}
+        <LinkToCart cart={cart} />
         <Categories event={this.shearchButton} />
         <input data-testid="query-input" type="text" onChange={this.textChange} />
         <button
