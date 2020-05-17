@@ -1,4 +1,4 @@
-.center{
+.center {
   margin-left: 350px;
   margin-top: -700px;
 }
@@ -11,12 +11,12 @@
 }
 
 .container .card {
-  display: inline-block;
   background: rgb(214, 214, 214);
   border-radius: 40px;
   box-shadow: -7px -7px 20px 0 white , 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
-  margin: 20px;
+  display: inline-block;
   padding: 40px 30px;
+  margin: 20px;
   width: 320px;
 }
 
@@ -29,13 +29,12 @@
   text-align: center;
 }
 
-.shearch-bar{
-  border: none;
-  outline: none;
+.shearch-bar {
   background: transparent;
+  border: none;
   border-radius: 50px;
+  box-shadow: -7px -7px 17px rgba(255,255,255,0.8), 7px 7px 17px rgba(70,70,70,0.12);
+  cursor: pointer;
   padding: 20px;
   margin: 20px 0;
-  box-shadow: -7px -7px 17px rgba(255,255,255,0.8),
-  7px 7px 17px rgba(70,70,70,0.12);
 }

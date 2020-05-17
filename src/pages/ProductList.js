@@ -61,14 +61,7 @@ class ProductList extends React.Component {
                 cart={cart}
                 amountInTheCart={amountInTheCart}
               />
-              <Link
-                to={{
-                  pathname: `/product/${el.id}`,
-                  productItem: el,
-                  cart,
-                }}
-                data-testid="product-detail-link"
-              >
+              <Link to={{ pathname: `/product/${el.id}`, productItem: el, cart }} data-testid="product-detail-link">
                 Ver detalhes
               </Link>
             </div>
@@ -85,7 +78,12 @@ class ProductList extends React.Component {
         <Categories event={this.shearchButton} />
         <div className="center">
           <LinkToCart cart={cart} />
-          <input className="shearch-bar" data-testid="query-input" type="text" onChange={this.textChange} />
+          <input
+            className="shearch-bar"
+            data-testid="query-input"
+            type="text"
+            onChange={this.textChange}
+          />
           <button
             className="botao"
             type="button"
