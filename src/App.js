@@ -9,6 +9,7 @@ import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import './App.css';
 import ProductDetails from './pages/ProductDetails';
+import imgCart from './images/carrinho-de-compras.png';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         to="/shopping-cart"
         data-testid="shopping-cart-button"
       >
-        <img src="/images/carrinho-de-compras.png" alt="carrinho-de-compras" />
+        <img src={imgCart} alt="carrinho-de-compras" />
       </Link>
       <Switch>
         <Route name="productList" exact path="/" component={ProductList} />

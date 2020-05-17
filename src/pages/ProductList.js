@@ -21,14 +21,15 @@ class ProductList extends React.Component {
     this.setState({ item: value.target.value });
   }
 
-  async shearchButton(categoryid) {
+  shearchButton(categoryid) {
     const { item } = this.state;
-    await getProductsFromCategoryAndQuery(categoryid, item)
+    console.log(item);
+    getProductsFromCategoryAndQuery(categoryid, item)
       .then((categories) => this.setState({ products: categories.results, valueShow: false }));
   }
 
   textInput() {
-    const { products, valueShow, item } = this.state;
+    const { products, valueShow } = this.state;
     if (valueShow) {
       return (
         <p data-testid="home-initial-message">
@@ -39,14 +40,14 @@ class ProductList extends React.Component {
     return (
       <div>
         {products.map((el) => (
-          <div key={el.title}>
+          <div key={el.id}>
             <div data-testid="product">{el.title}</div>
             <img src={el.thumbnail} alt={el.title} />
             <div>{el.price}</div>
             <Link
               to={{
                 pathname: `/product/${el.id}`,
-                state: item,
+                productItem: el,
               }}
               data-testid="product-detail-link"
             >
