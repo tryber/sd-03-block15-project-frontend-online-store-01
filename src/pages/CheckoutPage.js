@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 export default class CheckoutPage extends Component {
-  completedPurchase() {
-    return window.alert('Compra Finalizada');
-  }
-
   checkoutForm() {
     return (
       <div>

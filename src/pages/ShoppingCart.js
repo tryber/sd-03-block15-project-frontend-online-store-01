@@ -24,7 +24,13 @@ class ShoppingCart extends React.Component {
             </h4>
           </div>
         ))}
-        <button type="button" data-testid="checkout-products" onClick={() => this.redirectToTarget(cart)}>Finalizar Compra</button>
+        <button
+          type="button"
+          data-testid="checkout-products"
+          onClick={() => this.redirectToTarget(cart)}
+        >
+          Finalizar Compra
+        </button>
       </div>
     );
   }
