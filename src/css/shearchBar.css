@@ -1,6 +1,6 @@
 .center {
   margin-left: 350px;
-  margin-top: -650px;
+  margin-top: -700px;
 }
 
 .container {
@@ -34,7 +34,8 @@
   background: transparent;
   border: none;
   border-radius: 50px;
-  box-shadow: -7px -7px 17px rgba(255, 255, 255, 0.8) , 7px 7px 17px rgba(70, 70, 70, 0.12);
+  box-shadow: -7px -7px 17px rgba(255, 255, 255, 0.8) , 7px 7px 17px 
+    rgba(70, 70, 70, 0.12);
   cursor: pointer;
   margin: 20px 0;
   padding: 20px;
