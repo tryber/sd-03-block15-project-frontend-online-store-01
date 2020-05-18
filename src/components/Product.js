@@ -7,7 +7,6 @@ export default class Product extends Component {
     const { title, thumbnail, price, freeShipping } = this.props;
     return (
       <div className="container">
-        {console.log(freeShipping)}
         <h4 className="title" data-testid="product-detail-name">{title}</h4>
         <h4 className="title">
           R$

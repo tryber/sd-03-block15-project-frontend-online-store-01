@@ -12,7 +12,6 @@ class ProductList extends React.Component {
     super(props);
 
     this.state = {
-      amountInTheCart: 1,
       cart: [],
       item: '',
       products: [],
@@ -46,13 +45,12 @@ class ProductList extends React.Component {
   }
 
   productMap() {
-    const { products, cart, amountInTheCart } = this.state;
+    const { products, cart } = this.state;
     return (
       <div>
         {products.map((el) => (
           <div className="container" key={el.id}>
             <div className="card">
-
               {el.shipping.free_shipping ? <FreeeShipping /> : null}
               <div data-testid="product">{el.title}</div>
               <img src={el.thumbnail} alt={el.title} />
@@ -62,7 +60,6 @@ class ProductList extends React.Component {
                 thumbnail={el.thumbnail}
                 price={el.price}
                 cart={cart}
-                amountInTheCart={amountInTheCart}
               />
               <Link to={{ pathname: `/product/${el.id}`, productItem: el, cart }} data-testid="product-detail-link">
                 Ver detalhes
