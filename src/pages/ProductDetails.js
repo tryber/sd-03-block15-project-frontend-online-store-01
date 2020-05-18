@@ -12,7 +12,6 @@ class ProductDetails extends React.Component {
     this.state = {
       isLoading: true,
       product: {},
-      amountInTheCart: 1,
     };
   }
 
@@ -33,19 +32,17 @@ class ProductDetails extends React.Component {
     const { location: { productItem, cart } } = this.props;
     if (isLoading) return <Loading />;
 
-    const { title, price, thumbnail, shipping: { free_shipping } } = productItem;
-    const { amountInTheCart } = this.state;
+    const { title, price, thumbnail, shipping } = productItem;
 
     return (
       <div>
         <LinkToCart cart={cart} />
-        <Product title={title} thumbnail={thumbnail} price={price} freeShipping={free_shipping} />
+        <Product title={title} thumbnail={thumbnail} price={price} freeShipping={shipping} />
         <AddToCart
           title={title}
           thumbnail={thumbnail}
           price={price}
           cart={cart}
-          amountInTheCart={amountInTheCart}
         />
         <Rating id={productItem} />
       </div>

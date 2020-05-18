@@ -12,7 +12,7 @@ export default class Product extends Component {
           R$
           {price}
         </h4>
-        {freeShipping ? <FreeeShipping /> : null}
+        {Object.values(freeShipping)[0] ? <FreeeShipping /> : null}
         <img src={thumbnail} alt={title} className="imagem" />
       </div>
     );
