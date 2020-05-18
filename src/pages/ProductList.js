@@ -51,7 +51,7 @@ class ProductList extends React.Component {
         {products.map((el) => (
           <div className="container" key={el.id}>
             <div className="card">
-              {el.shipping.free_shipping ? <FreeeShipping /> : null}
+              {Object.values(el.shipping)[0] ? <FreeeShipping /> : null}
               <div data-testid="product">{el.title}</div>
               <img src={el.thumbnail} alt={el.title} />
               <div>{el.price}</div>

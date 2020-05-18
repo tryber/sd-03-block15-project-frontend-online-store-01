@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class FreeeShipping extends Component {
   render() {
@@ -6,6 +6,6 @@ export default class FreeeShipping extends Component {
       <div>
         <span data-testid="free-shipping">Frete Grátis.</span>
       </div>
-    )
+    );
   }
 }
