@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/shearchBar.css';
 
 const initialState = {
   menssagem: undefined,
@@ -89,7 +90,7 @@ export default class Rating extends Component {
           />
           {this.ratingStar()}
           {this.textArea()}
-          <button type="submit">Avaliar</button>
+          <button className="botao" type="submit">Avaliar</button>
         </form>
         <div>
           {rating === null ? null : rating.split(',').map((el) => <p>{el}</p>)}

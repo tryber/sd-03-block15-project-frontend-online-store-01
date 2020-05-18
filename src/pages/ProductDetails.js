@@ -3,7 +3,7 @@ import Loading from '../components/Loading';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Product from '../components/Product';
 import Rating from '../components/Rating';
-import AddToCartDetails from '../components/AddToCartDetails';
+import AddToCart from '../components/AddToCart';
 import LinkToCart from '../components/LinkToCart';
 
 class ProductDetails extends React.Component {
@@ -33,21 +33,21 @@ class ProductDetails extends React.Component {
     const { location: { productItem, cart } } = this.props;
     if (isLoading) return <Loading />;
 
-    const { title, price, thumbnail } = productItem;
+    const { title, price, thumbnail, shipping: { free_shipping } } = productItem;
     const { amountInTheCart } = this.state;
 
     return (
       <div>
         <LinkToCart cart={cart} />
-        <Product title={title} thumbnail={thumbnail} price={price} />
-        <Rating id={productItem} />
-        <AddToCartDetails
+        <Product title={title} thumbnail={thumbnail} price={price} freeShipping={free_shipping} />
+        <AddToCart
           title={title}
           thumbnail={thumbnail}
           price={price}
           cart={cart}
           amountInTheCart={amountInTheCart}
         />
+        <Rating id={productItem} />
       </div>
     );
   }

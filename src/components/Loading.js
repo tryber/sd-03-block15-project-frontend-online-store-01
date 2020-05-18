@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../css/loading.css';
 
-class Loading extends React.Component {
+class Loading extends Component {
   render() {
     return (
-      <div>
-        <p>Carregando...</p>
+      <div className="container-loading">
+        <div className="loader">
+          <span />
+        </div>
+        <p className="loading-message">Carregando...</p>
       </div>
     );
   }

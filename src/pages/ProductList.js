@@ -5,6 +5,7 @@ import Categories from '../components/Categories';
 import AddToCart from '../components/AddToCart';
 import LinkToCart from '../components/LinkToCart';
 import '../css/shearchBar.css';
+import FreeeShipping from '../components/FreeeShipping';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -51,6 +52,8 @@ class ProductList extends React.Component {
         {products.map((el) => (
           <div className="container" key={el.id}>
             <div className="card">
+
+              {el.shipping.free_shipping ? <FreeeShipping /> : null}
               <div data-testid="product">{el.title}</div>
               <img src={el.thumbnail} alt={el.title} />
               <div>{el.price}</div>
