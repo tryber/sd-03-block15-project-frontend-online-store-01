@@ -12,7 +12,7 @@ class ProductDetails extends React.Component {
     this.state = {
       isLoading: true,
       product: {},
-      amountInTheCart:1,
+      amountInTheCart: 1,
     };
   }
 
@@ -40,12 +40,12 @@ class ProductDetails extends React.Component {
       <div>
         <LinkToCart cart={cart} />
         <Product title={title} thumbnail={thumbnail} price={price} freeShipping={shipping} />
-         <AddToCartDetails
-          title={title}
-          thumbnail={thumbnail}
-          price={price}
-          cart={cart}
-          amountInTheCart={amountInTheCart}
+        <AddToCartDetails
+           title={title}
+           thumbnail={thumbnail}
+           price={price}
+           cart={cart}
+           amountInTheCart={amountInTheCart}
         />
         <Rating id={productItem} />
       </div>
