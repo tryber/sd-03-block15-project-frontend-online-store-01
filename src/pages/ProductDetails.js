@@ -41,11 +41,11 @@ class ProductDetails extends React.Component {
         <LinkToCart cart={cart} />
         <Product title={title} thumbnail={thumbnail} price={price} freeShipping={shipping} />
         <AddToCartDetails
-           title={title}
-           thumbnail={thumbnail}
-           price={price}
-           cart={cart}
-           amountInTheCart={amountInTheCart}
+          title={title}
+          thumbnail={thumbnail}
+          price={price}
+          cart={cart}
+          amountInTheCart={amountInTheCart}
         />
         <Rating id={productItem} />
       </div>
