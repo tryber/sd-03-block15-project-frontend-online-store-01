@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import '../css/shearchBar.css';
 
 export default class AddToCart extends Component {
-  addProduct(title, price, thumbnail, amountInTheCart) {
+  addProduct(id, title, price, thumbnail, amountInTheCart) {
     const { cart } = this.props;
-    cart.push({ title, price, thumbnail, amountInTheCart });
+    cart.push({ id, title, price, thumbnail, amountInTheCart });
+    console.log(this.props);
   }
 
   render() {
-    const { title, price, thumbnail, amountInTheCart } = this.props;
+    const {id, title, price, thumbnail, amountInTheCart } = this.props;
     return (
       <div>
         <button
           type="button"
-          onClick={() => this.addProduct(title, price, thumbnail, amountInTheCart)}
+          onClick={() => this.addProduct(id, title, price, thumbnail, amountInTheCart)}
           data-testid="product-add-to-cart"
           className="botao"
         >

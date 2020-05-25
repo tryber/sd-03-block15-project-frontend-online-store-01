@@ -57,6 +57,7 @@ class ProductList extends React.Component {
               <img src={el.thumbnail} alt={el.title} />
               <div>{el.price}</div>
               <AddToCart
+                id={el.id}
                 title={el.title}
                 thumbnail={el.thumbnail}
                 price={el.price}

@@ -2,9 +2,32 @@ import React from 'react';
 import caixaVazia from '../images/caixa-vazia.png';
 
 class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.increaseAmount = this.increaseAmount.bind(this);
+    this.decreaseAmount = this.decreaseAmount.bind(this);
+    this.state = { amountInTheCart: 0 };
+  }
+
   redirectToTarget(cart) {
     const { history } = this.props;
     history.push({ pathname: '/checkout', state: { cart } });
+  }
+
+  increaseAmount() {
+    const { location: { state: { cart } } } = this.props;
+
+    cart.map((item) => {
+      let total = 0;
+      total = item.amountInTheCart += 1;
+      console.log(item);
+      return total;
+    });
+  }
+
+  decreaseAmount() {
+    const { location: { state: { cart } } } = this.props;
+    console.log(cart.amountInTheCart);
   }
 
   cardItems() {
@@ -21,7 +44,10 @@ class ShoppingCart extends React.Component {
             </h3>
             <h4 data-testid="shopping-cart-product-quantity">
               {itemsInTheCart.amountInTheCart}
+
             </h4>
+            <button data-testid="product-increase-quantity" onClick={this.increaseAmount}>+ </button>
+            <button data-testid="product-decrease-quantity" onClick={this.decreaseAmount}>- </button>
           </div>
         ))}
         <button
